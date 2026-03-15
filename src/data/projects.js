@@ -23,7 +23,7 @@ export const projects = [
         description: 'Patient-facing mobile application for the HealthNet ecosystem, enabling easy access to medical records.',
         tags: ['React Native', 'Expo', 'Supabase'],
         category: 'Mobile',
-        link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/HealthNet.zip',
+        link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/HealthNet.apk',
         github: 'https://github.com/lemigobena/HealthNet.git',
         image: '/Images/HealthNet_App.png'
     },
@@ -50,7 +50,7 @@ export const projects = [
         description: 'Mobile companion for GuardianNet, providing instant security notifications and SOS features.',
         tags: ['React Native', 'Firebase'],
         category: 'Mobile',
-        link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/GuardianNet.zip',
+        link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/GuardianNet.apk',
         github: 'https://github.com/lemigobena/GuardianNet.git',
         image: '/Images/GuardianNet_App.png'
     },
@@ -76,7 +76,7 @@ export const projects = [
         description: 'Mobile application for LF-Hotels, providing a seamless booking experience on the go.',
         tags: ['React Native', 'Expo'],
         category: 'Mobile',
-        link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/LF-Hotels.zip',
+        link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/LF-Hotels.apk',
         github: 'https://github.com/lemigobena/LF-Hotels.git',
         image: '/Images/LF_Hotels_App.png'
     },
