@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemi Gobena - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #6366f1;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --bg-light: #ffffff;
+            --accent-bg: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { padding: 0 !important; background: white !important; }
+            .container { 
+                box-shadow: none !important; 
+                border: none !important; 
+                margin: 0 !important; 
+                width: 100% !important; 
+                max-width: none !important;
+                padding: 20px 30px !important;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: var(--text-dark);
+            line-height: 1.35;
+            padding: 10px;
+        }
+
+        .container {
+            width: 800px;
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            padding: 20px 30px;
+            display: grid;
+            grid-template-columns: 0.8fr 2.2fr;
+            gap: 15px;
+            position: relative;
+            overflow-wrap: break-word;
+        }
+
+        /* HEADER */
+        .header {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+            margin-bottom: 5px;
+        }
+
+        .profile-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin-bottom: 1px;
+            letter-spacing: -1px;
+        }
+
+        .header-info .title {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 4px;
+            font-size: 11px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .contact-item svg {
+            color: var(--primary);
+        }
+
+        /* SUMMARY */
+        .summary-box {
+            grid-column: 1 / -1;
+            background: var(--accent-bg);
+            padding: 10px 15px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .summary-box p {
+            font-size: 13px;
+            color: var(--text-dark);
+            font-weight: 400;
+            line-height: 1.45;
+            text-align: justify;
+        }
+
+        /* SIDEBAR (Left Column) */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 2px;
+        }
+
+        .sidebar-item {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-item h4 {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .sidebar-item p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+        }
+
+        .sidebar-item .date {
+            font-size: 11px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .skill-group {
+            margin-bottom: 12px;
+        }
+
+        .skill-group h5 {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .skill-list {
+            font-size: 11px;
+            color: var(--text-muted);
+            list-style: none;
+        }
+
+        /* MAIN CONTENT (Right Column) */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 10px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .item-header h4 {
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .item-header .company {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .item-period {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        ul.points {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.points li {
+            font-size: 11px;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 3px;
+        }
+
+        ul.points li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .project-tagline {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .footer-section {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--text-dark);
+            font-weight: 500;
+            max-width: 600px;
+        }
+
+        .footer-contact-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .footer-item:hover {
+            color: var(--primary);
+        }
+
+        .footer-item svg {
+            color: var(--primary);
+        }
+
+        .built-with {
+            font-size: 10px;
+            color: #9ca3af;
+            font-style: normal;
+        }
+
+        .footer-print {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 9px;
+            color: var(--text-muted);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container" id="cv-content">
+        <!-- HEADER -->
+        <div class="header">
+            <img src="../img/lemi.png" alt="Lemi Gobena" class="profile-img">
+            <div class="header-info">
+                <h1>Lemi Gobena</h1>
+                <p class="title">Full-Stack Software Engineer</p>
+                <div class="contact-grid">
+                    <a href="mailto:lemigobena12@gmail.com" class="contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        lemigobena12@gmail.com
+                    </a>
+                    <div class="contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +251 939 740 755
+                    </div>
+                    <div class="contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Addis Ababa, Ethiopia
+                    </div>
+                    <a href="https://github.com/lemigobena" class="contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        github.com/lemigobena
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <div class="summary-box">
+            <p>
+                Versatile Software Engineer with a proven track record of delivering end-to-end digital solutions that prioritize technical efficiency and user-centric design. Deeply committed to engineering excellence, I focus on building high-performance systems and exploring the frontiers of ML-integrated applications. Leveraging a distinct background in analytical mathematics, I aim to create impactful technology that transforms complex administrative challenges into streamlined digital experiences.
+            </p>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <!-- EDUCATION -->
+            <section>
+                <div class="section-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Education
+                </div>
+                <div class="sidebar-item">
+                    <h4>Addis Ababa University</h4>
+                    <p>BSc in Software Engineering</p>
+                    <span class="date">Estimated 2028</span>
+                </div>
+                <div class="sidebar-item">
+                    <h4>National Achievement</h4>
+                    <p>Top 10 National Scorer in ESSLCE (Ethiopian School Leaving Certificate Examination)</p>
+                    <span class="date">2023</span>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Self-Directed Study</h4>
+                    <p>Completed 25+ advanced projects in Full-Stack, Systems, and AI/ML.</p>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section>
+                <div class="section-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Skills
+                </div>
+                <div class="skill-group">
+                    <h5>Programming</h5>
+                    <ul class="skill-list">
+                        <li>JavaScript, Java, Python, C++</li>
+                        <li>SQL, HTML5, CSS3</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h5>Frameworks</h5>
+                    <ul class="skill-list">
+                        <li>React, Node.js, Next.js</li>
+                        <li>Express, React Native</li>
+                        <li>Prisma, Tailwind CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h5>Core Concepts</h5>
+                    <ul class="skill-list">
+                        <li>System Architecture</li>
+                        <li>Full-Stack Development</li>
+                        <li>ML / Generative AI</li>
+                        <li>Relational Databases</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h5>Tools</h5>
+                    <ul class="skill-list">
+                        <li>Git, Firebase, Supabase</li>
+                        <li>Expo, MS Access</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- LANGUAGES -->
+            <section>
+                <div class="section-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    Languages
+                </div>
+                <div class="sidebar-item">
+                    <p><strong>English:</strong> Professional Proficiency</p>
+                    <p><strong>Amharic/Oromo:</strong> Native</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- WORK EXPERIENCE -->
+            <section>
+                <div class="section-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    Work Experience
+                </div>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h4>Freelance Full-Stack Developer</h4>
+                        <span class="company">Independent Projects</span>
+                    </div>
+                    <span class="item-period">2021 – Present | Addis Ababa, Ethiopia</span>
+                    <ul class="points">
+                        <li>Successfully architected and deployed over 50 projects for local clients and administrative institutions.</li>
+                        <li>Specialized in end-to-end solutions, from responsive UI designs to scalable backend systems.</li>
+                        <li>Integrated third-party services like Firebase, Supabase, and Gemini API for advanced functionality.</li>
+                        <li>Optimized system performance for data-heavy applications using PostgreSQL and custom caching.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h4>System Developer (Early Works)</h4>
+                        <span class="company">Institutional Digitization</span>
+                    </div>
+                    <span class="item-period">2019 – 2021 | High School Projects</span>
+                    <ul class="points">
+                        <li>Developed a school website to centralize academic resources and news for staff and students.</li>
+                        <li>Built a relational database system to digitize student records and streamline administrative processes.</li>
+                        <li>Created a functional excavator prototype showcased in regional school exhibitions.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PROJECTS -->
+            <section>
+                <div class="section-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    Featured Projects
+                </div>
+                <div class="project-item">
+                    <h4>HealthNet (Full-Stack)</h4>
+                    <span class="project-tagline">Integrated Hospital & Patient Management System.</span>
+                    <ul class="points">
+                        <li>Engineered a system centralizing medical records, doctor scheduling, and admin dashboards using React and Node.js.</li>
+                        <li>Developed a mobile application companion with Expo and Supabase for real-time patient alerts.</li>
+                        <li>Automated administrative reporting, reducing paperwork time by approximately 40%.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <h4>GuardianNet (Safety)</h4>
+                    <span class="project-tagline">Real-time Safety & Security Monitoring Platform.</span>
+                    <ul class="points">
+                        <li>Developed a localized SOS alert system with real-time location tracking using Next.js and Firebase.</li>
+                        <li>Designed a high-performance dashboard for security managers to track incident reports instantenously.</li>
+                        <li>Implemented secure authentication and SOS triggers for mobile users via React Native.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <h4>MyStudy AI (AI/ML)</h4>
+                    <span class="project-tagline">Personalized AI Study Assistant.</span>
+                    <ul class="points">
+                        <li>Built an AI-driven platform using Gemini API/LLMs to organize study materials and generate interactive quizzes.</li>
+                        <li>Implemented vector-based search for study resources and local inference for quick material summarization.</li>
+                        <li>Enhanced student focus and organization through structured revision paths.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- COMPREHENSIVE FOOTER -->
+        <footer class="footer-section">
+            <p class="footer-tagline">"Dedicated to building impactful digital solutions that bridge the gap between technical complexity and user-centric design."</p>
+            
+            <div class="footer-social-links">
+                <a href="https://github.com/lemigobena" class="footer-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/lemigobena" class="footer-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    LinkedIn
+                </a>
+                <a href="https://lemigobena.com" class="footer-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    Portfolio
+                </a>
+            </div>
+
+            <p class="built-with">Built with Engineering Excellence & Modern Web Technologies</p>
+        </footer>
+    </div>
+
+    <div class="footer-print no-print">
+        <p>Save this page as a PDF (Ctrl+P) for a print-ready version.</p>
+    </div>
+
+</body>
+</html>

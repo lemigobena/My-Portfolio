@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --radius: 0.75rem;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 217 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 217 91% 60%;
+
+    --gradient-start: #3b82f6;
+    --gradient-mid: #8b5cf6;
+    --gradient-end: #d946ef;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 0 0% 98%;
+    --card: 224 71% 6%;
+    --card-foreground: 0 0% 98%;
+    --muted: 224 30% 15%;
+    --muted-foreground: 0 0% 65%;
+    --border: 224 30% 15%;
+    --input: 224 30% 15%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 217 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 217 91% 60%;
+
+    --gradient-start: #3b82f6;
+    --gradient-mid: #8b5cf6;
+    --gradient-end: #d946ef;
+  }
+}
+
+@layer base {
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    @apply antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Smooth HTML scrolling */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: hsl(var(--foreground) / 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--foreground) / 0.05);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, hsl(var(--card) / 0.8) 0%, hsl(var(--background) / 0.6) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--foreground) / 0.08);
+  box-shadow: 0 4px 30px hsl(var(--foreground) / 0.05);
+}
+
+/* Custom Gradient Text */
+.text-gradient {
+  background: linear-gradient(to right, hsl(var(--foreground)) 0%, hsl(var(--muted-foreground)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grid Background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+}
+
+/* Base selection color */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}
