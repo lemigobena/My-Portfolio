@@ -51,7 +51,7 @@ export const projects = [
         tags: ['React Native', 'Firebase'],
         category: 'Mobile',
         link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/GuardianNet.apk',
-        github: 'https://github.com/lemigobena/GuardianNet/tree/main/mobile.git',
+        github: 'https://github.com/lemigobena/GuardianNet/tree/main/mobile',
         image: '/Images/GuardianNet_App.png'
     },
     {
@@ -179,7 +179,7 @@ export const projects = [
         description: 'Streamlined booking platform for car rentals with inventory management.',
         tags: ['React', 'Node.js', 'Express'],
         category: 'Full-Stack',
-        github: 'https://github.com/lemigobena',
+        github: 'https://github.com/lemigobena/Car-Rental-Java',
         image: '/Images/CarRental.png'
     },
     {
@@ -216,7 +216,7 @@ export const projects = [
         description: 'Professional database system for university and school dormitory management with complex relational tracking.',
         tags: ['SQL', 'Database', 'MS Access'],
         category: 'Engineering',
-        github: 'https://github.com/lemigobena',
+        github: 'https://github.com/lemigobena/SchoolDatabase',
         image: '/Images/proj_school_db.png'
     },
     {
