@@ -167,7 +167,7 @@ export const projects = [
         description: 'System for university dormitory management with room tracking and student record preservation.',
         tags: ['Database', 'SQL'],
         category: 'Engineering',
-        github: 'https://github.com/lemigobena',
+        github: 'https://github.com/lemigobena/Dormitory-management-database-',
         image: '/Images/DormitoryManagement.png'
     },
     {
