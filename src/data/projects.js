@@ -24,7 +24,7 @@ export const projects = [
         tags: ['React Native', 'Expo', 'Supabase'],
         category: 'Mobile',
         link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/HealthNet.apk',
-        github: 'https://github.com/lemigobena/HealthNet.git',
+        github: 'https://github.com/lemigobena/HealthNet-App.git',
         image: '/Images/HealthNet_App.png'
     },
     {
@@ -38,7 +38,7 @@ export const projects = [
         category: 'Full-Stack',
         featured: true,
         link: 'https://myguardiannet.vercel.app/',
-        github: 'https://github.com/lemigobena/GuardianNet.git',
+        github: 'https://github.com/lemigobena/GuardianNet/tree/main/web.git',
         image: '/Images/GuardianNet_web.png'
     },
     {
@@ -51,7 +51,7 @@ export const projects = [
         tags: ['React Native', 'Firebase'],
         category: 'Mobile',
         link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/GuardianNet.apk',
-        github: 'https://github.com/lemigobena/GuardianNet.git',
+        github: 'https://github.com/lemigobena/GuardianNet/tree/main/mobile.git',
         image: '/Images/GuardianNet_App.png'
     },
     {
@@ -77,7 +77,7 @@ export const projects = [
         tags: ['React Native', 'Expo'],
         category: 'Mobile',
         link: 'https://github.com/lemigobena/My-Portfolio/releases/download/v1.0.0/LF-Hotels.apk',
-        github: 'https://github.com/lemigobena/LF-Hotels.git',
+        github: 'https://github.com/lemigobena/LF-Hotels/tree/main/mobile.git',
         image: '/Images/LF_Hotels_App.png'
     },
     {
