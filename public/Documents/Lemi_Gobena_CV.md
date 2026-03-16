@@ -5,6 +5,7 @@
 - 📞 +251 939 740 755
 - 📍 Addis Ababa, Ethiopia
 - 🔗 [github.com/lemigobena](https://github.com/lemigobena)
+- 🌐 [lemigobena.vercel.app](https://lemigobena.vercel.app/)
 
 ---
 
