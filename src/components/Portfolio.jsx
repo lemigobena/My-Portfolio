@@ -37,7 +37,7 @@ const Portfolio = ({ featuredOnly = false }) => {
                         ? "A selection of my best-implemented digital solutions."
                         : "A collection of digital experiences I've crafted, focusing on performance, scalability, and design."}
                 </p>
-                <p>If you want to have an experience by logging please contact me.</p><br>
+                <p className="text-muted-foreground max-w-2xl mx-auto text-lg mb-10">If you want to have an experience by logging into the exclusive projects please contact me. I'll send you the credentials instantly.</p><br>
                 {/* Filters - Only show on full portfolio page */}
                 {!featuredOnly && (
                     <div className="flex flex-wrap justify-center gap-4 mb-12">
