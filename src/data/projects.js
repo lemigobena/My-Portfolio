@@ -15,6 +15,19 @@ export const projects = [
         image: '/Images/HealthNet_web.png'
     },
     {
+        id: 'mereb-tech-website',
+        title: 'Mereb Technologies Official Website',
+        problem: 'Mereb Technologies needed a professional, high-performance digital presence to showcase their expertise and services.',
+        solution: 'Built a modern, SEO-optimized official website with a focus on premium aesthetics and user engagement.',
+        architecture: 'Next.js, Tailwind CSS, Framer Motion.',
+        description: 'The official corporate website for Mereb Technologies, featuring a dynamic services showcase, industry-specific landing pages, and professional branding.',
+        tags: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO'],
+        category: 'Full-Stack',
+        featured: true,
+        link: 'https://www.merebtechnology.com/',
+        image: '/Images/mereb.png'
+    },
+    {
         id: 'healthnet-app',
         title: 'HealthNet (Mobile App)',
         problem: 'Patients needed a mobile-first way to access their medical records and schedule visits.',
