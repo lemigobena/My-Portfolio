@@ -4,13 +4,9 @@ import Experience from '../components/Experience';
 
 const ExperiencePage = () => {
     return (
-        <div className="pt-24 space-y-16">
+        <div className="pt-20 md:pt-24 min-h-screen space-y-12">
             <EmploymentHistory />
-            
-            {/* Keeping My Journey as a separate section below professional history */}
-            <div className="border-t border-foreground/5 pt-16">
-                <Experience />
-            </div>
+            <Experience />
         </div>
     );
 };

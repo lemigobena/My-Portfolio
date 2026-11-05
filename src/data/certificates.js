@@ -165,6 +165,21 @@ const fmCertificates = [
     type: 'FM'
 }));
 
-export const allCertificates = [...udemyCertificates, ...fmCertificates].sort((a, b) => a.title.localeCompare(b.title));
-export { udemyCertificates, fmCertificates };
+const baseUrl = import.meta.env.BASE_URL || '/';
+const resolvePath = (p) => p ? `${baseUrl}${p.replace(/^\//, '')}` : p;
+
+const mappedUdemy = udemyCertificates.map(c => ({
+    ...c,
+    image: resolvePath(c.image),
+    document: resolvePath(c.document)
+}));
+
+const mappedFm = fmCertificates.map(c => ({
+    ...c,
+    image: resolvePath(c.image),
+    document: resolvePath(c.document)
+}));
+
+export const allCertificates = [...mappedUdemy, ...mappedFm].sort((a, b) => a.title.localeCompare(b.title));
+export { mappedUdemy as udemyCertificates, mappedFm as fmCertificates };
 

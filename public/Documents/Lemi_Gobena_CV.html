@@ -4,28 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lemi Gobena - CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #3b82f6;
-            --secondary: #6366f1;
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
+            --primary: #000000;
+            --primary-dark: #111827;
+            --secondary: #1f2937;
+            --text-dark: #000000;
+            --text-body: #334155;
+            --text-muted: #64748b;
             --bg-light: #ffffff;
-            --accent-bg: #f9fafb;
-            --border: #e5e7eb;
+            --accent-bg: #f8fafc;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
         }
 
         @media print {
-            .no-print { display: none; }
-            body { padding: 0 !important; background: white !important; }
+            .no-print { display: none !important; }
+            body { 
+                padding: 0 !important; 
+                margin: 0 !important;
+                background: white !important; 
+                -webkit-print-color-adjust: exact !important; 
+                print-color-adjust: exact !important; 
+            }
             .container { 
                 box-shadow: none !important; 
                 border: none !important; 
                 margin: 0 !important; 
                 width: 100% !important; 
                 max-width: none !important;
-                padding: 20px 30px !important;
+                height: 297mm !important;
+                max-height: 297mm !important;
+                padding: 24px 28px !important;
+                grid-template-rows: auto auto 1fr auto !important;
+                box-sizing: border-box !important;
             }
             @page {
                 size: A4;
@@ -40,26 +55,29 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f1f5f9;
             color: var(--text-dark);
-            line-height: 1.35;
+            line-height: 1.36;
             padding: 10px;
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            width: 800px;
+            width: 820px;
             max-width: 100%;
+            min-height: 1080px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
             border: 1px solid var(--border);
-            padding: 20px 30px;
+            padding: 24px 28px;
             display: grid;
-            grid-template-columns: 0.8fr 2.2fr;
-            gap: 15px;
+            grid-template-columns: 0.85fr 2.15fr;
+            grid-template-rows: auto auto 1fr auto;
+            gap: 16px;
             position: relative;
-            overflow-wrap: break-word;
         }
 
         /* HEADER */
@@ -67,163 +85,229 @@
             grid-column: 1 / -1;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
             border-bottom: 2px solid var(--primary);
             padding-bottom: 8px;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
         .profile-img {
-            width: 70px;
-            height: 70px;
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
             object-fit: cover;
             object-position: center 20%;
-            border: 2px solid var(--primary);
+            border: 2.5px solid var(--primary);
+            flex-shrink: 0;
+        }
+
+        .header-info {
+            flex-grow: 1;
         }
 
         .header-info h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 30px;
-            margin-bottom: 1px;
-            letter-spacing: -1px;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
         .header-info .title {
-            font-size: 15px;
+            font-size: 13.5px;
+            font-weight: 600;
             font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 5px;
+            color: var(--primary-dark);
+            margin-top: 1px;
+            margin-bottom: 4px;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 4px;
-            font-size: 11px;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3px 12px;
+            font-size: 10.5px;
         }
 
         .contact-item {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: var(--text-muted);
+            gap: 5px;
+            color: var(--text-body);
             text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
         }
 
         .contact-item svg {
             color: var(--primary);
+            flex-shrink: 0;
         }
 
         /* SUMMARY */
         .summary-box {
             grid-column: 1 / -1;
             background: var(--accent-bg);
-            padding: 10px 15px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-            margin-bottom: 5px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border-left: 3.5px solid var(--primary);
+            margin-bottom: 4px;
         }
 
         .summary-box p {
-            font-size: 13px;
-            color: var(--text-dark);
+            font-size: 11.5px;
+            color: var(--text-body);
             font-weight: 400;
             line-height: 1.45;
             text-align: justify;
+        }
+
+        /* SECTION HEADINGS */
+        .section-title {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+            border-bottom: 1.5px solid var(--primary);
+            padding-bottom: 3px;
+            color: var(--text-dark);
+        }
+
+        .section-title svg {
+            color: var(--primary);
         }
 
         /* SIDEBAR (Left Column) */
         .sidebar {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-        }
-
-        .section-title {
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 5px;
-            border-bottom: 1px solid var(--primary);
-            padding-bottom: 2px;
+            gap: 12px;
         }
 
         .sidebar-item {
-            margin-bottom: 10px;
+            margin-bottom: 7px;
         }
 
         .sidebar-item h4 {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
+            color: var(--text-dark);
         }
 
         .sidebar-item p {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 3px;
+            font-size: 10.5px;
+            color: var(--text-body);
+            margin-bottom: 1px;
         }
 
         .sidebar-item .date {
-            font-size: 11px;
+            font-size: 10.5px;
             color: var(--primary);
             font-weight: 600;
         }
 
         .skill-group {
-            margin-bottom: 12px;
+            margin-bottom: 7px;
         }
 
         .skill-group h5 {
-            font-size: 11px;
+            font-size: 10.5px;
             text-transform: uppercase;
+            font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+            letter-spacing: 0.3px;
         }
 
         .skill-list {
-            font-size: 11px;
-            color: var(--text-muted);
+            font-size: 10.5px;
+            color: var(--text-body);
             list-style: none;
+            line-height: 1.36;
         }
 
         /* MAIN CONTENT (Right Column) */
         .main-content {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .experience-item, .project-item {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .item-header h4 {
-            font-size: 14px;
+            font-size: 12.5px;
             font-weight: 800;
+            color: var(--text-dark);
         }
 
         .item-header .company {
             font-style: italic;
-            color: var(--text-muted);
-            font-size: 13px;
+            color: var(--primary-dark);
+            font-size: 11.5px;
+            font-weight: 600;
         }
 
         .item-period {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-muted);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+
+        .project-meta h4 {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .project-links {
+            font-size: 10.5px;
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        .project-role-badge {
+            font-size: 10.5px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-style: italic;
+            margin-bottom: 3px;
             display: block;
         }
 
@@ -233,11 +317,12 @@
         }
 
         ul.points li {
-            font-size: 11px;
-            color: var(--text-dark);
+            font-size: 10.5px;
+            color: var(--text-body);
             position: relative;
-            padding-left: 12px;
-            margin-bottom: 3px;
+            padding-left: 11px;
+            margin-bottom: 3.5px;
+            line-height: 1.36;
         }
 
         ul.points li::before {
@@ -245,179 +330,162 @@
             position: absolute;
             left: 0;
             color: var(--primary);
+            font-weight: bold;
         }
 
-        .project-tagline {
-            font-size: 12px;
-            font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-            display: block;
-        }
-
+        /* FOOTER */
         .footer-section {
             grid-column: 1 / -1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            margin-top: 2px;
-            padding-top: 8px;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 10px;
             border-top: 1px solid var(--border);
             text-align: center;
         }
 
         .footer-tagline {
-            font-size: 13px;
+            font-size: 11px;
             font-style: italic;
-            color: var(--text-dark);
+            color: var(--text-body);
             font-weight: 500;
-            max-width: 600px;
-        }
-
-        .footer-contact-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+            max-width: 650px;
         }
 
         .footer-social-links {
             display: flex;
             gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .footer-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .footer-item:hover {
-            color: var(--primary);
         }
 
         .footer-item svg {
             color: var(--primary);
         }
 
-        .built-with {
-            font-size: 10px;
-            color: #9ca3af;
-            font-style: normal;
-        }
-
-        .footer-print {
-            text-align: center;
-            margin-top: 5px;
+        .footer-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
             font-size: 9px;
             color: var(--text-muted);
+            margin-top: 1px;
+            padding-top: 2px;
         }
-        
     </style>
 </head>
 <body>
 
     <div class="container" id="cv-content">
         <!-- HEADER -->
-        <div class="header">
+        <header class="header">
             <img src="../Images/lemi.png" alt="Lemi Gobena" class="profile-img">
             <div class="header-info">
                 <h1>Lemi Gobena</h1>
-                <p class="title">Full-Stack Software Engineer</p>
+                <p class="title">Full-Stack Engineer | Next.js, Express.js, React Native, PostgreSQL</p>
                 <div class="contact-grid">
                     <a href="mailto:lemigobena12@gmail.com" class="contact-item">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         lemigobena12@gmail.com
                     </a>
-                    <div class="contact-item">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        +251 939 740 755
-                    </div>
-                    <div class="contact-item">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Addis Ababa, Ethiopia
-                    </div>
-                    <a href="https://github.com/lemigobena" class="contact-item">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    <a href="https://github.com/lemigobena" class="contact-item" target="_blank" rel="noopener">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                         github.com/lemigobena
                     </a>
+                    <a href="https://lemigobena.vercel.app/" class="contact-item" target="_blank" rel="noopener">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        lemigobena.vercel.app
+                    </a>
+                    <div class="contact-item">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Addis Ababa, Ethiopia
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
 
         <!-- PROFESSIONAL SUMMARY -->
-        <div class="summary-box">
+        <section class="summary-box">
             <p>
-                Versatile Software Engineer with a proven track record of delivering end-to-end digital solutions that prioritize technical efficiency and user-centric design. Deeply committed to engineering excellence, I focus on building high-performance systems and exploring the frontiers of ML-integrated applications. Leveraging a distinct background in analytical mathematics, I aim to create impactful technology that transforms complex administrative challenges into streamlined digital experiences.
+                Versatile Full-Stack Engineer with a proven track record of delivering end-to-end digital solutions that prioritize technical efficiency, scalability, and user-centric design. Deeply committed to engineering excellence, I focus on building high-performance web and mobile platforms with robust backend architectures. Having completed over 50 projects across healthcare, enterprise finance, recruitment platforms, and consumer applications, I transform complex organizational challenges into streamlined, reliable digital experiences.
             </p>
-        </div>
+        </section>
 
         <!-- SIDEBAR -->
-        <div class="sidebar">
+        <aside class="sidebar">
             <!-- EDUCATION -->
             <section>
                 <div class="section-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                     Education
                 </div>
                 <div class="sidebar-item">
                     <h4>Addis Ababa University</h4>
                     <p>BSc in Software Engineering</p>
-                    <span class="date">Estimated 2028</span>
+                    <span class="date">Expected 2028</span>
                 </div>
                 <div class="sidebar-item">
                     <h4>National Achievement</h4>
-                    <p>Top 10 National Scorer in ESSLCE (Ethiopian School Leaving Certificate Examination)</p>
+                    <p>Top 10 National Scorer in ESSLCE (Ethiopian School Leaving Certificate Exam)</p>
                     <span class="date">2023</span>
                 </div>
                 <div class="sidebar-item">
                     <h4>Self-Directed Study</h4>
-                    <p>Completed 25+ advanced projects in Full-Stack, Systems, and AI/ML.</p>
+                    <p>Completed over 50 projects in Full-Stack, Mobile, and Systems Engineering.</p>
                 </div>
             </section>
 
             <!-- SKILLS -->
             <section>
                 <div class="section-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    Skills
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Technical Skills
                 </div>
                 <div class="skill-group">
-                    <h5>Programming</h5>
+                    <h5>Languages</h5>
                     <ul class="skill-list">
-                        <li>JavaScript, Java, Python, C++</li>
-                        <li>SQL, HTML5, CSS3</li>
+                        <li>JavaScript (ES6+), TypeScript, Python</li>
+                        <li>SQL (PostgreSQL), C++, Java, Dart, PHP</li>
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h5>Frameworks</h5>
+                    <h5>Frontend</h5>
                     <ul class="skill-list">
-                        <li>React, Node.js, Next.js</li>
-                        <li>Express, React Native</li>
-                        <li>Prisma, Tailwind CSS</li>
+                        <li>React, Next.js, Vite, TypeScript</li>
+                        <li>Tailwind CSS, Framer Motion, HTML5/CSS3</li>
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h5>Core Concepts</h5>
+                    <h5>Mobile</h5>
                     <ul class="skill-list">
-                        <li>System Architecture</li>
-                        <li>Full-Stack Development</li>
-                        <li>ML / Generative AI</li>
-                        <li>Relational Databases</li>
+                        <li>React Native, Expo, Flutter, Dart</li>
+                        <li>Cross-Platform (iOS/Android), Offline-First</li>
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h5>Tools</h5>
+                    <h5>Backend & APIs</h5>
                     <ul class="skill-list">
-                        <li>Git, Firebase, Supabase</li>
-                        <li>Expo, MS Access</li>
+                        <li>Express.js, RESTful APIs, Prisma ORM</li>
+                        <li>TypeORM, Drizzle ORM, Supabase, Firebase</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h5>Systems & Architecture</h5>
+                    <ul class="skill-list">
+                        <li>System Design, Relational DBs, Redis, Bull</li>
+                        <li>Linux / Ubuntu, Concurrency, Git, Docker</li>
                     </ul>
                 </div>
             </section>
@@ -425,112 +493,130 @@
             <!-- LANGUAGES -->
             <section>
                 <div class="section-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     Languages
                 </div>
                 <div class="sidebar-item">
                     <p><strong>English:</strong> Professional Proficiency</p>
-                    <p><strong>Amharic/Oromo:</strong> Native</p>
+                    <p><strong>Amharic / Oromo:</strong> Native</p>
                 </div>
             </section>
-        </div>
+        </aside>
 
         <!-- MAIN CONTENT -->
-        <div class="main-content">
+        <main class="main-content">
             <!-- WORK EXPERIENCE -->
             <section>
                 <div class="section-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                     Work Experience
                 </div>
                 <div class="experience-item">
                     <div class="item-header">
-                        <h4>Freelance Full-Stack Developer</h4>
-                        <span class="company">Independent Projects</span>
+                        <h4>Junior Full-Stack Developer</h4>
+                        <span class="company">Mereb Technologies</span>
                     </div>
-                    <span class="item-period">2021 – Present | Addis Ababa, Ethiopia</span>
+                    <span class="item-period">March 2026 – Present | Addis Ababa, Ethiopia</span>
                     <ul class="points">
-                        <li>Successfully architected and deployed over 50 projects for local clients and administrative institutions.</li>
-                        <li>Specialized in end-to-end solutions, from responsive UI designs to scalable backend systems.</li>
-                        <li>Integrated third-party services like Firebase, Supabase, and Gemini API for advanced functionality.</li>
-                        <li>Optimized system performance for data-heavy applications using PostgreSQL and custom caching.</li>
+                        <li>Contributed to company web platforms and talent recruitment software, engineering both responsive frontends and modular backend services.</li>
+                        <li>Participated in feature development, bug resolution, and performance tuning to deliver scalable, high-quality client solutions.</li>
                     </ul>
                 </div>
                 <div class="experience-item">
                     <div class="item-header">
-                        <h4>System Developer (Early Works)</h4>
-                        <span class="company">Institutional Digitization</span>
+                        <h4>Full-Stack & Mobile App Developer</h4>
+                        <span class="company">Tech Med</span>
                     </div>
-                    <span class="item-period">2019 – 2021 | High School Projects</span>
+                    <span class="item-period">January 2026 – August 2026 | Healthcare Systems</span>
                     <ul class="points">
-                        <li>Developed a school website to centralize academic resources and news for staff and students.</li>
-                        <li>Built a relational database system to digitize student records and streamline administrative processes.</li>
-                        <li>Created a functional excavator prototype showcased in regional school exhibitions.</li>
+                        <li>Spearheaded development of healthcare digital platforms, creating intuitive patient management systems, web portals, and mobile app features.</li>
+                        <li>Integrated secure Express.js API endpoints and optimized frontend responsiveness to streamline clinical workflows and patient engagement.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- PROJECTS -->
+            <!-- FEATURED PROJECTS -->
             <section>
                 <div class="section-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
                     Featured Projects
                 </div>
+
+                <!-- a. Mereb Website & Mereb Talent -->
                 <div class="project-item">
-                    <h4>HealthNet (Full-Stack)</h4>
-                    <span class="project-tagline">Integrated Hospital & Patient Management System.</span>
+                    <div class="project-meta">
+                        <h4>Mereb Website & Mereb Talent ATS</h4>
+                        <div class="project-links">
+                            <a href="https://mereb.tech/" target="_blank">mereb.tech</a> • 
+                            <a href="https://talent.mereb.tech/" target="_blank">talent.mereb.tech</a>
+                        </div>
+                    </div>
+                    <span class="project-role-badge">Role: Full-Stack Developer & Web Designer</span>
                     <ul class="points">
-                        <li>Engineered a system centralizing medical records, doctor scheduling, and admin dashboards using React and Node.js.</li>
-                        <li>Developed a mobile application companion with Expo and Supabase for real-time patient alerts.</li>
-                        <li>Automated administrative reporting, reducing paperwork time by approximately 40%.</li>
+                        <li>Designed and developed Mereb's corporate web platform (Next.js 16, React 19, Tailwind CSS) with sleek animations and responsive UI/UX.</li>
+                        <li>Engineered the Mereb Talent ATS platform using Next.js, Express.js, TypeScript, PostgreSQL (TypeORM), and Bull queues for automated applicant tracking.</li>
                     </ul>
                 </div>
+
+                <!-- b. Lean Finance Verification System -->
                 <div class="project-item">
-                    <h4>GuardianNet (Safety)</h4>
-                    <span class="project-tagline">Real-time Safety & Security Monitoring Platform.</span>
+                    <div class="project-meta">
+                        <h4>Lean Finance Verification System</h4>
+                        <span class="project-role-badge" style="margin: 0;">Enterprise Financial Platform</span>
+                    </div>
+                    <span class="project-role-badge">Role: Full-Stack Developer & Project Lead</span>
                     <ul class="points">
-                        <li>Developed a localized SOS alert system with real-time location tracking using Next.js and Firebase.</li>
-                        <li>Designed a high-performance dashboard for security managers to track incident reports instantenously.</li>
-                        <li>Implemented secure authentication and SOS triggers for mobile users via React Native.</li>
+                        <li>Led architecture and end-to-end development of an automated financial auditing and verification platform using Express.js, TypeScript, Prisma, and PostgreSQL.</li>
+                        <li>Engineered reconciliation algorithms for bank statements, general ledgers, and vendor accounts, integrating OCR document parsing for verification.</li>
                     </ul>
                 </div>
+
+                <!-- c. Jegnit Pregnancy Tracker -->
                 <div class="project-item">
-                    <h4>MyStudy AI (AI/ML)</h4>
-                    <span class="project-tagline">Personalized AI Study Assistant.</span>
+                    <div class="project-meta">
+                        <h4>Jegnit – Pregnancy & Maternal Health Tracker</h4>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.jegnit.pregnancytracker" target="_blank">Google Play</a>
+                        </div>
+                    </div>
+                    <span class="project-role-badge">Role: App Developer</span>
                     <ul class="points">
-                        <li>Built an AI-driven platform using Gemini API/LLMs to organize study materials and generate interactive quizzes.</li>
-                        <li>Implemented vector-based search for study resources and local inference for quick material summarization.</li>
-                        <li>Enhanced student focus and organization through structured revision paths.</li>
+                        <li>Built and published a bilingual (English & Amharic) mobile app on Google Play using React Native (Expo) and an Express.js / PostgreSQL backend.</li>
+                        <li>Implemented pregnancy stage calculators, weekly fetal development milestones, and personalized maternal tracking with offline-first capabilities.</li>
+                    </ul>
+                </div>
+
+                <!-- d. HealthNet -->
+                <div class="project-item">
+                    <div class="project-meta">
+                        <h4>HealthNet & HealthNet Mobile App</h4>
+                        <div class="project-links">
+                            <a href="https://health-net-ethiopia.vercel.app/" target="_blank">health-net-ethiopia.vercel.app</a>
+                        </div>
+                    </div>
+                    <span class="project-role-badge">Role: Full-Stack Developer & Mobile App Developer (Personal Projects)</span>
+                    <ul class="points">
+                        <li>Engineered an integrated hospital management system (React, Express.js, PostgreSQL) with a companion mobile app (React Native / Expo).</li>
+                        <li>Centralized electronic health records (EHR), clinical scheduling, and patient notifications, reducing paperwork processing time by 90%.</li>
                     </ul>
                 </div>
             </section>
-        </div>
+        </main>
 
-        <!-- COMPREHENSIVE FOOTER -->
+        <!-- FOOTER -->
         <footer class="footer-section">
-            <p class="footer-tagline">"Dedicated to building impactful digital solutions that bridge the gap between technical complexity and user-centric design."</p>
-            
+            <p class="footer-tagline">"Dedicated to building impactful digital solutions that bridge technical complexity and user-centric design."</p>
             <div class="footer-social-links">
-                <a href="https://github.com/lemigobena" class="footer-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    GitHub
+                <a href="tel:+251939740755" class="footer-item">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    +251 939 740 755
                 </a>
-                <a href="https://linkedin.com/in/lemigobena" class="footer-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    LinkedIn
-                </a>
-                <a href="https://lemigobena.vercel.app/" class="footer-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    Portfolio
+                <a href="https://linkedin.com/in/lemigobena" class="footer-item" target="_blank" rel="noopener">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    linkedin.com/in/lemigobena
                 </a>
             </div>
-
-            <p class="built-with">Built with Engineering Excellence & Modern Web Technologies</p>
         </footer>
-    </div>
-
-    <div class="footer-print no-print">
-        <p>Save this page as a PDF (Ctrl+P) for a print-ready version.</p>
     </div>
 
 </body>

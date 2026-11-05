@@ -24,13 +24,13 @@ const ProjectGrid = () => {
                 Featured Projects
             </motion.h2>
 
-            <div className="flex justify-center gap-4 mb-12">
+            <div className="flex justify-center gap-3 mb-12">
                 {categories.map((category) => (
                     <button
                         key={category}
                         onClick={() => setFilter(category)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${filter === category
-                            ? 'bg-primary text-foreground border border-primary-light'
+                        className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${filter === category
+                            ? 'bg-primary text-white shadow-md shadow-primary/30 scale-105'
                             : 'bg-foreground/5 text-muted-foreground hover:bg-foreground/10 hover:text-foreground border border-foreground/10'
                             }`}
                     >
@@ -92,7 +92,12 @@ const ProjectGrid = () => {
                                     <Github size={18} />
                                     <span>Code</span>
                                 </a>
-                                {project.category === 'App' && (project.link?.includes('drive.google.com') || project.link?.endsWith('.apk')) ? (
+                                {project.link?.includes('play.google.com') ? (
+                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-primary hover:text-primary-light transition-colors font-bold">
+                                        <ExternalLink size={18} />
+                                        <span>Google Play</span>
+                                    </a>
+                                ) : project.category === 'App' && (project.link?.includes('drive.google.com') || project.link?.endsWith('.apk')) ? (
                                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-primary hover:text-primary-light transition-colors font-bold">
                                         <Download size={18} />
                                         <span>Download APK</span>

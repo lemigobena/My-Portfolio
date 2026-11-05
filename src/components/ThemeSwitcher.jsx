@@ -6,9 +6,10 @@ const ThemeSwitcher = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => {
         if (typeof window !== 'undefined') {
             const savedMode = localStorage.getItem('portfolio-mode');
-            return savedMode === 'light' ? false : true;
+            // Default to White (Light) mode unless the user explicitly saved 'dark'
+            return savedMode === 'dark';
         }
-        return true;
+        return false;
     });
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const ThemeSwitcher = () => {
         } else {
             document.documentElement.classList.remove('dark');
         }
-        // Cleanup old document-level theme attribute since we removed color modes
+        // Cleanup old document-level theme attribute
         document.documentElement.removeAttribute('data-theme');
     }, [isDarkMode]);
 

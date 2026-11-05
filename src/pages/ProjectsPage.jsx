@@ -3,7 +3,7 @@ import Portfolio from '../components/Portfolio';
 
 const ProjectsPage = () => {
     return (
-        <div className="pt-24 min-h-[80vh]">
+        <div className="w-full min-h-screen">
             <Portfolio featuredOnly={false} />
         </div>
     );

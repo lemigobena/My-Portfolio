@@ -1,103 +1,128 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, Plus, Pencil, Trash2 } from 'lucide-react';
+import {
+    Calendar,
+    CheckCircle2,
+    Building2,
+    MapPin
+} from 'lucide-react';
 
 const employmentHistory = [
     {
         id: 1,
         role: "Junior Full-Stack Developer",
         company: "Mereb Technologies",
-        period: "March 2026 - Present",
-        description: "Contributed to multiple company website projects at Mereb Technologies, working on both frontend and backend development. Participated in feature development, bug fixing, and improving performance while collaborating with the team to deliver scalable, high-quality solutions.",
-        technologies: ["Fullstack Developer"]
+        period: "March 2026 — Present",
+        location: "Addis Ababa, Ethiopia",
+        badge: "Current Role",
+        summary: "Leading end-to-end full-stack engineering for core enterprise digital products and automated recruitment infrastructure, developing resilient backend services and high-performance client web applications.",
+        responsibilities: [
+            "Architected and deployed the Mereb Talent ATS platform, automating end-to-end candidate pipeline ingestion, resume evaluation, and interview scheduling workflows.",
+            "Engineered high-throughput, modular REST API services using Node.js, Express, and TypeScript, backed by PostgreSQL with TypeORM relational schema normalization.",
+            "Implemented asynchronous Redis and Bull background worker queues to process high-volume candidate resume parsing without blocking the main event loop.",
+            "Built and scaled the official Mereb corporate digital platform utilizing Next.js 16, React 19, and Tailwind CSS with sub-second page performance and fluid UI transitions.",
+            "Collaborated with senior engineering staff to diagnose system bottlenecks, conduct rigorous code reviews, and establish enterprise code quality standards."
+        ]
     },
     {
         id: 2,
-        role: "Full-stack Developer",
+        role: "Full-Stack & Mobile App Developer",
         company: "Tech Med",
-        period: "January 2026 - Present",
-        description: "Spearheaded the development of healthcare-oriented digital platforms, focusing on building intuitive patient management systems and robust data architectures. Successfully integrated secure API endpoints and optimized frontend performance to enhance the overall digital experience for clinical workflows and client-facing applications.",
-        technologies: ["Fullstack Developer", "Mobile App Developer"]
+        period: "January 2026 — August 2026",
+        location: "Addis Ababa, Ethiopia",
+        badge: "Mobile Healthtech",
+        summary: "Spearheaded the technical architecture, mobile engineering, and production deployment of Jegnit, a bilingual maternal health and fetal development tracking platform launched on the Google Play Store.",
+        responsibilities: [
+            "Architected and engineered the cross-platform Jegnit mobile application with React Native and Expo, delivering weekly gestational guidance and kick counter tools.",
+            "Implemented robust offline-first synchronization using local SQLite storage, ensuring uninterrupted health tracking across low-connectivity regional environments.",
+            "Developed scalable REST API microservices with Node.js, Express, and PostgreSQL, powering authenticated user profiles and scheduled clinical notification feeds.",
+            "Engineered complete bilingual localization across English and Amharic, implementing localized clinical typography, fetal growth metrics, and trimester insights.",
+            "Managed end-to-end mobile release pipelines, automated build signing, and successfully deployed and maintained the production release on the Google Play Store."
+        ]
     }
 ];
 
 const EmploymentHistory = () => {
     return (
-        <section id="employment-history" className="py-12 relative overflow-hidden">
-            {/* Background Decorations */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] -z-10 animate-pulse" style={{ animationDelay: '2s' }} />
+        <section
+            id="experience"
+            className="w-full min-h-screen lg:h-screen text-[#111827] flex flex-col justify-center py-6 sm:py-8 lg:py-10 bg-transparent relative select-text border-t border-neutral-200/80"
+            aria-label="Work Experience and Industry Roles"
+        >
+            <div className="w-full max-w-[1536px] mx-auto px-6 sm:px-12 lg:px-16 xl:px-20">
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="glass-card rounded-[2.5rem] p-8 md:p-14 border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.3)] relative overflow-hidden"
-            >
-                <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-                
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
-                    <div className="flex items-center gap-5">
-                        <div className="relative group">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative p-4 bg-background/50 backdrop-blur-xl rounded-2xl border border-white/10">
-                                <Briefcase className="text-primary" size={32} />
-                            </div>
-                        </div>
-                        <div>
-                            <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-                                Employment <span className="text-gradient-accent">History</span>
-                            </h2>
-                            <p className="text-muted-foreground text-lg mt-1 font-light">My professional journey in the industry.</p>
-                        </div>
-                    </div>
+                {/* Section Header */}
+                <div className="mb-6 lg:mb-8 shrink-0">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#111827] font-display">
+                        Industry Experience & Roles
+                    </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {/* Industry Experience Cards: Side-by-Side (Left & Right) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
                     {employmentHistory.map((job, index) => (
                         <motion.div
                             key={job.id}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.2, duration: 0.6 }}
-                            className="h-full group"
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            className="p-5 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl border border-neutral-300 bg-white/95 shadow-xs hover:border-[#111827] transition-all duration-300 flex flex-col justify-between h-full"
                         >
-                            <div className="h-full glass border border-white/5 rounded-[2rem] p-8 hover:border-primary/30 hover:bg-white/[0.03] transition-all duration-500 relative flex flex-col shadow-xl">
-                                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 blur-3xl rounded-full group-hover:bg-primary/10 transition-colors duration-500" />
-                                
-                                <div className="flex flex-col gap-5 mb-8">
-                                    <div className="space-y-1">
-                                        <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                                            {job.role}
-                                        </h3>
-                                        <div className="text-xl text-muted-foreground font-medium flex items-center gap-2">
-                                            <span className="w-2 h-2 bg-primary rounded-full" />
-                                            {job.company}
+                            <div className="flex flex-col h-full justify-between">
+                                {/* Role Header & Badges */}
+                                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2.5 mb-3">
+                                    <div>
+                                        <div className="flex flex-wrap items-center gap-2">
+                                            <h3 className="text-lg sm:text-xl font-bold text-[#111827] tracking-tight">
+                                                {job.role}
+                                            </h3>
+                                            <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#111827] text-white">
+                                                {job.badge}
+                                            </span>
+                                        </div>
+                                        <div className="text-xs sm:text-sm text-neutral-800 font-semibold mt-1 flex flex-wrap items-center gap-2">
+                                            <span className="flex items-center gap-1">
+                                                <Building2 size={13} className="text-neutral-500" />
+                                                <span>{job.company}</span>
+                                            </span>
+                                            <span className="text-neutral-400">•</span>
+                                            <span className="text-neutral-500 font-normal text-xs flex items-center gap-1">
+                                                <MapPin size={12} /> {job.location}
+                                            </span>
                                         </div>
                                     </div>
-                                    
-                                    <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20 self-start">
-                                        <Calendar size={14} />
-                                        <span>{job.period}</span>
-                                    </div>
+
+                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-100 text-[11px] font-mono font-medium text-neutral-700 border border-neutral-300 self-start sm:self-auto shrink-0">
+                                        <Calendar size={12} /> {job.period}
+                                    </span>
                                 </div>
-                                
-                                <p className="text-muted-foreground leading-relaxed text-lg font-light flex-1 mb-8">
-                                    {job.description}
+
+                                {/* Executive Summary */}
+                                <p className="text-neutral-700 text-xs sm:text-sm font-normal leading-relaxed mb-4">
+                                    {job.summary}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
-                                    {job.technologies.map(tech => (
-                                        <span key={tech} className="px-3 py-1 bg-white/5 text-xs font-medium rounded-lg text-muted-foreground group-hover:text-foreground transition-colors border border-white/5">
-                                            {tech}
-                                        </span>
-                                    ))}
+                                {/* Elaborate Responsibilities & Engineering Accomplishments */}
+                                <div className="bg-neutral-50/80 p-4 sm:p-5 rounded-2xl border border-neutral-200 flex-1 flex flex-col justify-start space-y-2.5">
+                                    <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-0.5">
+                                        Key Responsibilities & Contributions:
+                                    </div>
+                                    <ul className="space-y-2 sm:space-y-2.5">
+                                        {job.responsibilities.map((resp, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-xs sm:text-[13px] text-neutral-700 font-normal leading-relaxed">
+                                                <CheckCircle2 size={14} className="text-[#111827] shrink-0 mt-0.5" />
+                                                <span>{resp}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-            </motion.div>
+
+            </div>
         </section>
     );
 };

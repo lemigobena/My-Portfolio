@@ -1,146 +1,305 @@
 import React from 'react';
-import { Typewriter } from 'react-simple-typewriter';
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Download, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Tilt from 'react-parallax-tilt';
+import {
+    SiTypescript,
+    SiReact,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiTailwindcss,
+    SiPython,
+    SiPostgresql,
+    SiDocker,
+    SiGithub,
+    SiLinux,
+} from 'react-icons/si';
+
+const topTechStacks = [
+    {
+        name: 'TypeScript',
+        category: 'Programming language',
+        icon: SiTypescript,
+        dark: true,
+    },
+    {
+        name: 'React.js',
+        category: 'Frontend development',
+        icon: SiReact,
+        dark: false,
+    },
+    {
+        name: 'Next.js',
+        category: 'Full-stack framework',
+        icon: SiNextdotjs,
+        dark: true,
+    },
+    {
+        name: 'Node.js',
+        category: 'Backend development',
+        icon: SiNodedotjs,
+        dark: false,
+    },
+    {
+        name: 'Tailwind CSS',
+        category: 'UI styling',
+        icon: SiTailwindcss,
+        dark: true,
+    },
+    {
+        name: 'Python',
+        category: 'Programming & automation',
+        icon: SiPython,
+        dark: false,
+    },
+    {
+        name: 'PostgreSQL',
+        category: 'Database management',
+        icon: SiPostgresql,
+        dark: true,
+    },
+    {
+        name: 'Docker',
+        category: 'Containerization',
+        icon: SiDocker,
+        dark: false,
+    },
+    {
+        name: 'Git & GitHub',
+        category: 'Version control',
+        icon: SiGithub,
+        dark: true,
+    },
+    {
+        name: 'Linux & Ubuntu',
+        category: 'Dev environment & servers',
+        icon: SiLinux,
+        dark: false,
+    },
+];
 
 const Hero = () => {
+    const [hoveredTech, setHoveredTech] = React.useState(null);
     return (
-        <section id="hero" className="w-full min-h-screen flex items-center pt-20 relative">
-            <div className="w-full grid md:grid-cols-2 gap-12 items-center">
-                {/* Left Content */}
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center md:items-start text-center md:text-left z-10"
-                >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2, duration: 0.5 }}
-                        className="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6 flex items-center gap-2 cursor-default hover:bg-primary/20 transition-colors"
-                    >
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        Top National Scorer (ESSLCE '23)
-                    </motion.div>
+        <section
+            id="hero"
+            className="w-full min-h-screen lg:h-screen text-[#111827] overflow-hidden flex flex-col justify-center py-12 sm:py-16 lg:py-8 bg-[#F1F1F1] relative"
+            aria-label="Hero Section"
+        >
+            {/* FULL-VIEWPORT SKETCHPAD ARTWORK BACKDROP (Clean charcoal sketch of Lemi at desk with laptop, books, mug, plants - NO baked-in cards) */}
+            <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+                <img
+                    src={`${import.meta.env.BASE_URL}Images/hero_sketch_canvas_2x.png`}
+                    alt="Lemi Gobena Sketch Artwork"
+                    className="w-full h-full object-cover object-[75%_center] sm:object-right pointer-events-none select-none transition-transform duration-700"
+                    loading="eager"
+                />
 
-                    {/* Staggered Text Reveal */}
-                    <div className="overflow-hidden">
-                        <motion.h1
-                            initial={{ y: 100 }}
-                            animate={{ y: 0 }}
-                            transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
-                            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 text-foreground"
-                        >
-                            Hi, I'm <br />
-                            <span className="text-gradient drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">Lemi Gobena Jaleta</span>
-                        </motion.h1>
-                    </div>
+                {/* Left Side Ambient Wash for 100% Vector Text Sharpness & Natural Paper Contrast */}
+                <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[50%] xl:w-[44%] bg-gradient-to-r from-[#F1F1F1] via-[#F1F1F1]/95 sm:via-[#F1F1F1]/85 to-transparent pointer-events-none" />
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.4, duration: 0.8 }}
-                        className="text-2xl md:text-3xl text-muted-foreground font-light mb-6 h-10"
-                    >
-                        <span className="text-foreground font-semibold italic">
-                            <Typewriter
-                                words={['Full-Stack Developer', 'Software Engineer', 'Systems Architect', 'AI/ML Enthusiast', 'UI/UX Designer']}
-                                loop={0}
-                                cursor
-                                cursorStyle="_"
-                                typeSpeed={70}
-                                deleteSpeed={50}
-                                delaySpeed={1500}
-                            />
-                        </span>
-                    </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.6, duration: 0.8 }}
-                        className="text-muted-foreground max-w-lg mb-10 text-lg md:text-xl leading-relaxed"
-                    >
-                        I bridge the gap between design and development, building scalable digital solutions with modern architecture and robust backends.
-                    </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.5 }}
-                        className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center md:justify-start"
-                    >
-                        <a
-                            href="/projects"
-                            className="flex items-center gap-2 px-6 py-2.5 bg-white text-background rounded-full font-bold hover:bg-gray-200 transition-transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)] whitespace-nowrap"
-                        >
-                            View Work <ArrowRight size={20} />
-                        </a>
-                        <a
-                            href="/Documents/Lemi_Gobena_CV.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-6 py-2.5 bg-primary/20 text-primary border border-primary/30 rounded-full font-bold hover:bg-primary/30 transition-transform hover:scale-105 active:scale-95 sm:ml-2 whitespace-nowrap"
-                        >
-                            Download Resume
-                        </a>
-                        <div className="flex items-center gap-2 sm:ml-4 mt-4 sm:mt-0">
-                            <a href="https://github.com/lemigobena" target="_blank" rel="noopener noreferrer" className="block p-3 glass rounded-full text-muted-foreground hover:text-foreground transition-all hover:scale-110">
-                                <Github size={20} />
-                            </a>
-                            <a href="https://linkedin.com/in/lemi-gobena" target="_blank" rel="noopener noreferrer" className="block p-3 glass rounded-full text-muted-foreground hover:text-foreground transition-all hover:scale-110">
-                                <Linkedin size={20} />
-                            </a>
-                        </div>
-                    </motion.div>
-                </motion.div>
-
-                {/* Right Content / Visuals */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
-                    className="hidden md:flex justify-center items-center relative"
-                >
-                    {/* Abstract Shape/Image Wrapper with 3D Tilt */}
-                    <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} perspective={1000} scale={1.05} transitionSpeed={1000} className="relative w-72 h-72 md:w-96 md:h-96">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary to-purple-600 rounded-full blur-[80px] opacity-40 animate-pulse" />
-                        <div className="glass w-full h-full rounded-[40px] rotate-12 flex items-center justify-center relative overflow-hidden group shadow-[0_0_50px_rgba(59,130,246,0.2)] border border-foreground/20">
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10" />
-                            <img
-                                src="/Images/hero-bg.jpg"
-                                alt="Abstract"
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-125 transition-transform duration-1000 ease-out"
-                            />
-                            <motion.img
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 1, duration: 0.8, type: "spring" }}
-                                src="/Images/lemi_logo.png"
-                                alt="Lemi Logo"
-                                className="z-20 w-full h-full object-cover opacity-90"
-                            />
-                        </div>
-
-                    </Tilt>
-                </motion.div>
+                {/* Subtle Edge Blends */}
+                <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#F1F1F1]/60 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#F1F1F1]/40 to-transparent pointer-events-none" />
             </div>
 
-            {/* Scroll indicator */}
-            <motion.div
-                animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2"
-            >
-                <div className="w-[30px] h-[50px] rounded-full border-2 border-foreground/30 flex justify-center p-2 backdrop-blur-sm bg-foreground/5">
-                    <div className="w-1 h-3 bg-foreground/80 rounded-full shadow-[0_0_10px_white]" />
+            {/* REAL INTERACTIVE FLOATING UI COMPONENTS OVER THE SKETCH SCENE */}
+            <div className="absolute inset-0 max-w-[1536px] mx-auto pointer-events-none z-10">
+
+                {/* 1. REAL FLOATING CODE SNIPPET HOLDER - Safely displayed on 2xl screens where clearance is guaranteed so it NEVER touches the face */}
+                <motion.div
+                    initial={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -4, scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                    className="pointer-events-auto absolute top-[16%] left-[44%] z-10 bg-[#141518]/95 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-2xl shadow-black/50 text-left w-[260px] hidden 2xl:block select-text"
+                >
+                    {/* Monochrome Window Controls */}
+                    <div className="flex items-center gap-1.5 mb-3 select-none">
+                        <span className="w-2.5 h-2.5 rounded-full bg-neutral-600" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-neutral-500" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-neutral-400" />
+                    </div>
+
+                    {/* Black & White Real Text Code Snippet with Fixed Line Number Gutter */}
+                    <div className="font-mono text-[11px] sm:text-[11.5px] leading-relaxed text-neutral-300">
+                        <div className="flex items-center">
+                            <span className="text-neutral-500 w-4 select-none text-[9.5px] text-left shrink-0">1</span>
+                            <span className="text-neutral-200">
+                                <span className="text-white font-semibold">const</span> dev = &#123;
+                            </span>
+                        </div>
+                        <div className="flex items-center">
+                            <span className="text-neutral-500 w-4 select-none text-[9.5px] text-left shrink-0">2</span>
+                            <span className="pl-3.5 text-neutral-200">
+                                name: <span className="text-white">"Lemi"</span>,
+                            </span>
+                        </div>
+                        <div className="flex items-center">
+                            <span className="text-neutral-500 w-4 select-none text-[9.5px] text-left shrink-0">3</span>
+                            <span className="pl-3.5 text-neutral-200">
+                                role: <span className="text-white">"Developer"</span>,
+                            </span>
+                        </div>
+                        <div className="flex items-center">
+                            <span className="text-neutral-500 w-4 select-none text-[9.5px] text-left shrink-0">4</span>
+                            <span className="pl-3.5 text-neutral-200">
+                                focus: [<span className="text-white">"Clean"</span>, <span className="text-white">"Scalable"</span>,
+                            </span>
+                        </div>
+                        <div className="flex items-center">
+                            <span className="text-neutral-500 w-4 select-none text-[9.5px] text-left shrink-0">5</span>
+                            <span className="pl-[58px] text-neutral-200">
+                                <span className="text-white">"Simple"</span>]
+                            </span>
+                        </div>
+                        <div className="flex items-center">
+                            <span className="text-neutral-500 w-4 select-none text-[9.5px] text-left shrink-0">6</span>
+                            <span className="text-neutral-200">&#125;;</span>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* 2. REAL FLOATING TECH STACKS COMPONENT (Transparent Holder & Endless Orbit Rotation) */}
+                <div
+                    className="pointer-events-auto absolute top-[4%] lg:top-[5%] right-[2%] lg:right-[4%] xl:right-[5%] z-20 w-[220px] h-[220px] hidden md:flex items-center justify-center select-none group-orbit"
+                >
+                    {/* Subtle SVG Circular Orbital Track */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 220 220">
+                        <circle
+                            cx="110"
+                            cy="110"
+                            r="82"
+                            fill="none"
+                            stroke="#9CA3AF"
+                            strokeWidth="1"
+                            strokeDasharray="3 4"
+                            className="opacity-45"
+                        />
+                    </svg>
+
+                    {/* Center Hub (Frosted Core Coin for Perfect Contrast over Foliage) */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        <div className="w-[58px] h-[58px] rounded-full bg-white/90 backdrop-blur-sm border border-neutral-200/90 shadow-xs flex flex-col items-center justify-center text-center p-1 transition-all duration-200">
+                            {hoveredTech ? (
+                                <div className="flex flex-col items-center justify-center">
+                                    <hoveredTech.icon className="w-4 h-4 mb-0.5 text-[#111827]" />
+                                    <span className="text-[8px] font-bold text-[#111827] leading-tight max-w-[50px] truncate">
+                                        {hoveredTech.name}
+                                    </span>
+                                </div>
+                            ) : (
+                                <div className="flex flex-col items-center justify-center">
+                                    <span className="text-[7px] font-mono font-bold tracking-widest text-neutral-400 uppercase">
+                                        TOP 10
+                                    </span>
+                                    <span className="text-[9px] font-mono font-black text-[#111827] tracking-wider uppercase">
+                                        STACKS
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Endless Rotating Orbital Ring */}
+                    <div className="absolute inset-0 w-full h-full animate-orbit">
+                        {topTechStacks.map((tech, index) => {
+                            const Icon = tech.icon;
+                            const angle = (index * 36 - 90) * (Math.PI / 180);
+                            const radius = 82; // px
+                            const center = 110; // px
+                            const badgeSize = 32; // px
+                            const x = center + radius * Math.cos(angle) - badgeSize / 2;
+                            const y = center + radius * Math.sin(angle) - badgeSize / 2;
+
+                            const isHovered = hoveredTech?.name === tech.name;
+
+                            return (
+                                <div
+                                    key={tech.name}
+                                    style={{ left: `${x}px`, top: `${y}px` }}
+                                    className="absolute z-20 group"
+                                    onMouseEnter={() => setHoveredTech(tech)}
+                                    onMouseLeave={() => setHoveredTech(null)}
+                                >
+                                    {/* Counter-rotation to keep logo upright as orbit spins */}
+                                    <div className="animate-counter-orbit">
+                                        <div
+                                            className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer ${
+                                                isHovered
+                                                    ? 'scale-125 z-30 shadow-md shadow-black/25 ' +
+                                                      (tech.dark
+                                                          ? 'bg-black text-white border border-black ring-2 ring-black/20'
+                                                          : 'bg-[#111827] text-white border border-[#111827] ring-2 ring-black/20')
+                                                    : tech.dark
+                                                    ? 'bg-[#111827] text-white border border-[#111827] hover:scale-110'
+                                                    : 'bg-white/95 border border-neutral-300 text-neutral-900 hover:bg-[#111827] hover:text-white hover:scale-110'
+                                            }`}
+                                            title={`${tech.name} — ${tech.category}`}
+                                        >
+                                            <Icon className="w-4 h-4" />
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
-            </motion.div>
+            </div>
+
+            {/* MAIN CONTENT AREA: Left Narrative Layer (100% Selectable Normal Text) */}
+            <div className="w-full max-w-[1536px] mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 relative z-30 flex-1 flex flex-col justify-center my-auto pointer-events-auto select-text">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-2 select-text">
+
+                    {/* Left Column Narrative (Uncluttered, Breathable, Pure Typography) */}
+                    <div className="lg:col-span-5 xl:col-span-5 max-w-[440px] xl:max-w-[480px] flex flex-col items-start select-text">
+
+                        {/* Minimalist Eyebrow Tag */}
+                        <div className="flex items-center gap-2.5 mb-5 select-text">
+                            <span className="w-2 h-2 rounded-full bg-[#111827]" />
+                            <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.2em] text-[#4B5563] uppercase select-text cursor-text">
+                                FULL-STACK DEVELOPER
+                            </span>
+                        </div>
+
+                        {/* Monumental Headline in Plus Jakarta Sans */}
+                        <h1 className="font-display text-4xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-black text-[#111827] tracking-[-0.035em] leading-[1.06] mb-5 select-text cursor-text">
+                            Hi, I'm <br />
+                            <span className="text-[#111827]">Lemi Gobena.</span>
+                        </h1>
+
+                        {/* Description Paragraph */}
+                        <p className="text-base sm:text-lg text-[#4B5563] leading-relaxed mb-8 font-normal select-text cursor-text">
+                            I bridge the gap between design and development, building scalable digital solutions with modern architecture and robust backends.
+                        </p>
+
+                        {/* Clean Action Buttons */}
+                        <div className="flex flex-wrap items-center gap-5 sm:gap-6 w-full select-text">
+                            <a
+                                href={`${import.meta.env.BASE_URL}Documents/Lemi_Gobena_CV.pdf`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                download="Lemi_Gobena_CV.pdf"
+                                className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#111827] hover:bg-black text-white rounded-full font-semibold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 shadow-md shadow-black/15 group cursor-pointer"
+                            >
+                                <Download size={16} />
+                                <span>Download Resume</span>
+                                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                            </a>
+
+                            {/* <a
+                                href="#portfolio"
+                                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#111827] hover:text-[#4B5563] transition-colors group cursor-pointer"
+                            >
+                                <span className="border-b border-[#111827] pb-0.5">View My Work</span>
+                                <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+                            </a> */}
+                        </div>
+                    </div>
+
+                    {/* Right spacer for desktop artwork positioning */}
+                    <div className="hidden lg:block lg:col-span-7 xl:col-span-7 lg:h-[500px] pointer-events-none" />
+                </div>
+            </div>
         </section>
     );
 };
