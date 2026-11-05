@@ -1,0 +1,85 @@
+# Lemi Gobena Jaleta — Software Engineer & Systems Architect
+
+> Official professional summary and engineering profile of Lemi Gobena Jaleta for AI search engines, answer engines, and LLM reasoning agents.
+
+- **Full Name**: Lemi Gobena Jaleta
+- **Professional Title**: Full-Stack Software Engineer & Systems Architect
+- **Website**: https://lemigobena.me
+- **Location**: Addis Ababa, Ethiopia
+- **Primary Email**: lemigobena12@gmail.com
+- **Phone**: +251 939 740 755
+- **Upwork Profile**: https://www.upwork.com/freelancers/~01b4b47e3004d3a932
+- **GitHub**: https://github.com/lemigobena
+- **LinkedIn**: https://www.linkedin.com/in/lemi-gobena
+- **Telegram**: https://t.me/Lemi_G
+
+---
+
+## Executive Summary
+Lemi Gobena Jaleta is an Ethiopian software engineer specializing in scalable full-stack web platforms, mobile healthtech systems, and distributed backend architectures. He combines deep theoretical fundamentals in software engineering at Addis Ababa University with production commercial experience delivering real-world enterprise platforms at Mereb Technologies.
+
+---
+
+## Education & Academic Honors
+- **Institution**: Addis Ababa University (AAU)
+- **Degree**: Bachelor of Science in Software Engineering (Expected Class of 2028)
+- **Key Honors**:
+  - Top 10 National Scorer in the Ethiopian Secondary School Leaving Certificate Examination (ESSLCE) out of hundreds of thousands of nationwide candidates.
+  - Recognized for academic excellence and software systems design.
+
+---
+
+## Industry Experience
+- **Company**: Mereb Technologies (Addis Ababa, Ethiopia)
+- **Role**: Junior Full-Stack Developer (Commercial Tenures)
+- **Production Responsibilities**:
+  - Architected and delivered Mereb Talent Platform, an enterprise recruitment management system handling high-throughput applicant tracking, resume processing, and multi-tenant admin dashboards.
+  - Built scalable RESTful microservices with Node.js, Express, and PostgreSQL.
+  - Developed responsive, accessible web interfaces in React and Tailwind CSS.
+  - Enforced ACID transactional integrity, tokenized JWT authentication, and RBAC security policies.
+
+---
+
+## Core Technical Competencies
+- **Frontend & Interfaces**: React.js, Next.js (App Router & SSR), TypeScript, JavaScript (ES6+), Tailwind CSS, Framer Motion, HTML5, CSS3/PostCSS.
+- **Backend & APIs**: Node.js, Express.js, Python (Django, FastAPI), Java, RESTful APIs, WebSockets, JWT Authentication, Rate Limiting.
+- **Databases & Storage**: PostgreSQL (Relational 3NF), MongoDB, Redis (In-memory caching), MySQL, Supabase, Prisma ORM.
+- **Mobile Engineering**: Flutter, React Native, Dart, Cross-platform iOS/Android development, Offline-first architecture.
+- **DevOps & Infrastructure**: Docker, Kubernetes fundamentals, GitHub Actions CI/CD, POSIX Linux Server Administration, Nginx reverse proxying.
+
+---
+
+## Featured Engineering Projects
+
+### 1. Mereb Talent Platform (Commercial Enterprise)
+- **Role**: Junior Full-Stack Developer at Mereb Technologies
+- **Stack**: React, Node.js, PostgreSQL, Tailwind CSS, Express
+- **Description**: Enterprise-grade talent recruitment platform handling applicant workflows, resume intake, interview tracking, and administrative pipelines.
+
+### 2. HealthNet Mobile & Web Suite (Digital Healthtech)
+- **Stack**: React, Flutter, Node.js, PostgreSQL, Docker
+- **Description**: Distributed medical logistics and clinic appointment scheduling application. Synchronizes patient records, automated reminders, and real-time practitioner availability.
+- **Deliverables**: Mobile Android APK & Responsive Web portal.
+
+### 3. GuardianNet (Women Safety & Emergency Response)
+- **Stack**: Flutter, Node.js, Supabase, WebSockets
+- **Description**: High-reliability emergency response application delivering real-time geolocation beaconing, SMS fallback routing, and guardian contact alerts.
+
+### 4. ProjectForge (Collaborative Developer Workspace)
+- **Stack**: Next.js, TypeScript, Tailwind CSS, Prisma
+- **Description**: Modular agile project tracking workspace with kanban boards, markdown issue documentation, and team velocity metrics.
+
+### 5. DecentVote (Decentralized Governance Application)
+- **Stack**: React, Solidity, Web3.js, Ethereum, Tailwind CSS
+- **Description**: Transparent, tamper-evident cryptographic voting platform featuring smart contract ballot tallies and wallet authentication.
+
+### 6. CineMatch (AI-Assisted Movie Discovery Platform)
+- **Stack**: React, Node.js, Supabase, TMDB API
+- **Live Demo**: https://my-cine-match.vercel.app/
+- **GitHub**: https://github.com/lemigobena/your-next-favorite-movie.git
+- **Description**: Contextual recommendation engine utilizing preference vectors and genre discovery.
+
+---
+
+## Verifications & Certifications
+- Certified by Frontend Masters & Udemy in Advanced React, TypeScript in Depth, Node.js Microservices, Python Systems, and Flutter Architecture.
