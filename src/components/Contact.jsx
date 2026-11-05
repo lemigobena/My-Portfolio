@@ -257,7 +257,7 @@ const Contact = ({ isStandalone = false }) => {
                                             name="user_name"
                                             required
                                             placeholder="Your name"
-                                            className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-1 focus:ring-[#111827] outline-none transition-all"
+                                            className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-0 focus:outline-none outline-none ring-0 transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1.5">
@@ -270,7 +270,7 @@ const Contact = ({ isStandalone = false }) => {
                                             name="user_email"
                                             required
                                             placeholder="your.email@example.com"
-                                            className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-1 focus:ring-[#111827] outline-none transition-all"
+                                            className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-0 focus:outline-none outline-none ring-0 transition-all"
                                         />
                                     </div>
                                 </div>
@@ -285,7 +285,7 @@ const Contact = ({ isStandalone = false }) => {
                                         name="subject"
                                         required
                                         placeholder="What is this regarding?"
-                                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-1 focus:ring-[#111827] outline-none transition-all"
+                                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-0 focus:outline-none outline-none ring-0 transition-all"
                                     />
                                 </div>
 
@@ -299,14 +299,14 @@ const Contact = ({ isStandalone = false }) => {
                                         required
                                         rows={4}
                                         placeholder="Your message..."
-                                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-1 focus:ring-[#111827] outline-none transition-all resize-none leading-relaxed"
+                                        className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-[#111827] text-sm placeholder:text-neutral-400 focus:bg-white focus:border-[#111827] focus:ring-0 focus:outline-none outline-none ring-0 transition-all resize-none leading-relaxed"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={status === 'sending'}
-                                    className="w-full py-3.5 px-6 rounded-xl font-bold flex items-center justify-center gap-2 text-sm text-white bg-[#111827] hover:bg-neutral-800 transition-all active:scale-[0.99] cursor-pointer shadow-xs disabled:opacity-60"
+                                    className="w-full py-3.5 px-6 rounded-xl font-bold flex items-center justify-center gap-2 text-sm text-white bg-[#111827] hover:bg-neutral-800 transition-all active:scale-[0.99] cursor-pointer shadow-xs disabled:opacity-60 focus:outline-none outline-none focus:ring-0 ring-0"
                                 >
                                     {status === 'sending' ? (
                                         <>

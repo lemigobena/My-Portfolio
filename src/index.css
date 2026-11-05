@@ -169,10 +169,19 @@ html::-webkit-scrollbar-thumb:hover {
   animation-play-state: paused;
 }
 
-/* Focus outline for accessibility */
+/* Focus outline */
 *:focus-visible {
-  outline: 2px solid #FFB020;
-  outline-offset: 2px;
+  outline: none;
+}
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+button:focus,
+button:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
 }
 
 /* Hide scrollbars cleanly */
