@@ -38,6 +38,9 @@ jobs:
         env:
           NODE_ENV: production
           VITE_BASE_PATH: /My-Portfolio/
+          VITE_EMAILJS_SERVICE_ID: "lemi'sportfolio"
+          VITE_EMAILJS_TEMPLATE_ID: "template_kr8svin"
+          VITE_EMAILJS_PUBLIC_KEY: "FPKNvXJdV5KapMqmI"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

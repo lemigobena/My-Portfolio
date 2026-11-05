@@ -44,17 +44,18 @@ const Contact = ({ isStandalone = false }) => {
         e.preventDefault();
         setStatus('sending');
 
-        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_default';
-        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_default';
-        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'pub_key_default';
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "lemi'sportfolio";
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_kr8svin';
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'FPKNvXJdV5KapMqmI';
 
         emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey })
             .then(() => {
                 setStatus('success');
-                e.target.reset();
+                if (formRef.current) formRef.current.reset();
                 setTimeout(() => setStatus('idle'), 5000);
             })
-            .catch(() => {
+            .catch((err) => {
+                console.error('EmailJS send error:', err);
                 setStatus('error');
                 setTimeout(() => setStatus('idle'), 5000);
             });
