@@ -34,3 +34,4 @@ Allow: /
 
 # Sitemap Location
 Sitemap: https://lemigobena.me/sitemap.xml
+

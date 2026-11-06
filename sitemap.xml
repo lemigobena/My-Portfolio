@@ -8,7 +8,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://lemigobena.me/og-image.png</image:loc>
-      <image:title>Lemi Gobena Jaleta — Full-Stack Software Engineer &amp; Systems Architect</image:title>
+      <image:title>Lemi Gobena — Full-Stack Developer</image:title>
     </image:image>
   </url>
   <url>
@@ -48,3 +48,4 @@
     <priority>0.7</priority>
   </url>
 </urlset>
+
