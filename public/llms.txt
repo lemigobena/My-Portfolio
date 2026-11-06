@@ -83,3 +83,4 @@ Lemi Gobena Jaleta is an Ethiopian software engineer specializing in scalable fu
 
 ## Verifications & Certifications
 - Certified by Frontend Masters & Udemy in Advanced React, TypeScript in Depth, Node.js Microservices, Python Systems, and Flutter Architecture.
+
