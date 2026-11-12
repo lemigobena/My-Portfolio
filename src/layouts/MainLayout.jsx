@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+import { getSeoForPath } from '../data/seoRoutes';
 
 /**
  * MainLayout
@@ -18,6 +19,26 @@ const MainLayout = () => {
         damping: 30,
         restDelta: 0.001
     });
+
+    useEffect(() => {
+        const seo = getSeoForPath(location.pathname);
+        document.title = seo.title;
+
+        const updateTag = (selector, attr, value) => {
+            const el = document.head.querySelector(selector);
+            if (el) el.setAttribute(attr, value);
+        };
+
+        updateTag('link[rel="canonical"]', 'href', seo.canonical);
+        updateTag('meta[name="title"]', 'content', seo.title);
+        updateTag('meta[name="description"]', 'content', seo.description);
+        updateTag('meta[property="og:url"]', 'content', seo.canonical);
+        updateTag('meta[property="og:title"]', 'content', seo.title);
+        updateTag('meta[property="og:description"]', 'content', seo.description);
+        updateTag('meta[name="twitter:url"]', 'content', seo.canonical);
+        updateTag('meta[name="twitter:title"]', 'content', seo.title);
+        updateTag('meta[name="twitter:description"]', 'content', seo.description);
+    }, [location.pathname]);
 
     useEffect(() => {
         if (location.hash) {

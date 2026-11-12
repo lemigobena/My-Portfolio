@@ -6,7 +6,7 @@ import {
     FaXTwitter,
     FaEnvelope
 } from 'react-icons/fa6';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const sidebarItems = [
     { id: 'hero', name: 'Home', icon: Home, path: '/', hash: '#hero' },
@@ -27,7 +27,6 @@ const socialLinks = [
 
 const Sidebar = () => {
     const location = useLocation();
-    const navigate = useNavigate();
     const [activeItem, setActiveItem] = useState('hero');
     const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -53,9 +52,10 @@ const Sidebar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [location.pathname]);
 
-    const handleClick = (item) => {
+    const handleClick = (e, item) => {
         setIsMobileOpen(false);
         if (item.isDownload) {
+            e.preventDefault();
             window.open(item.path, '_blank', 'noopener,noreferrer');
             return;
         }
@@ -65,12 +65,16 @@ const Sidebar = () => {
         if (location.pathname === '/' && item.hash) {
             const el = document.querySelector(item.hash);
             if (el) {
+                e.preventDefault();
                 el.scrollIntoView({ behavior: 'smooth' });
                 return;
             }
         }
 
-        navigate(item.path);
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+            return;
+        }
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -82,8 +86,9 @@ const Sidebar = () => {
                 aria-label="Main Navigation"
             >
                 {/* Top Logo Monogram & Name */}
-                <div
-                    onClick={() => handleClick(sidebarItems[0])}
+                <Link
+                    to="/"
+                    onClick={(e) => handleClick(e, sidebarItems[0])}
                     className="flex flex-col items-center cursor-pointer group shrink-0 pt-0.5"
                     title="Lemi Gobena Portfolio"
                 >
@@ -97,7 +102,7 @@ const Sidebar = () => {
                     <span className="text-[10px] lg:text-[11px] font-black tracking-widest text-[#111827] mt-1 font-sans">
                         LEMI.
                     </span>
-                </div>
+                </Link>
 
                 {/* Middle Vertical Navigation Tabs: Centered between the lowest edge of logo and top edge of socials */}
                 <nav className="flex flex-col items-center gap-1.5 my-auto w-full px-1.5 shrink-0" aria-label="Sections">
@@ -106,9 +111,10 @@ const Sidebar = () => {
                         const isActive = activeItem === item.id;
 
                         return (
-                            <button
+                            <Link
                                 key={item.id}
-                                onClick={() => handleClick(item)}
+                                to={item.path}
+                                onClick={(e) => handleClick(e, item)}
                                 className={`w-full py-1.5 px-1 rounded-xl flex flex-col items-center justify-center transition-all duration-200 cursor-pointer group ${isActive
                                         ? 'bg-[#E5E7EB] text-[#111827] shadow-xs'
                                         : 'text-[#6B7280] hover:text-[#111827] hover:bg-[#EAEAEA]/80'
@@ -127,7 +133,7 @@ const Sidebar = () => {
                                     }`}>
                                     {item.name}
                                 </span>
-                            </button>
+                            </Link>
                         );
                     })}
                 </nav>
@@ -154,8 +160,9 @@ const Sidebar = () => {
 
             {/* Mobile Header Bar (< md screens) */}
             <header className="md:hidden fixed top-0 left-0 right-0 h-14 bg-[#F7F7F8]/95 backdrop-blur-md border-b border-[#E5E7EB] z-50 px-4 flex items-center justify-between">
-                <div
-                    onClick={() => handleClick(sidebarItems[0])}
+                <Link
+                    to="/"
+                    onClick={(e) => handleClick(e, sidebarItems[0])}
                     className="flex items-center gap-2 cursor-pointer"
                 >
                     <img
@@ -166,7 +173,7 @@ const Sidebar = () => {
                     <span className="text-xs font-black tracking-wider text-[#111827]">
                         LEMI.
                     </span>
-                </div>
+                </Link>
 
                 <button
                     onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -189,9 +196,10 @@ const Sidebar = () => {
                                 const Icon = item.icon;
                                 const isActive = activeItem === item.id;
                                 return (
-                                    <button
+                                    <Link
                                         key={item.id}
-                                        onClick={() => handleClick(item)}
+                                        to={item.path}
+                                        onClick={(e) => handleClick(e, item)}
                                         className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${isActive
                                                 ? 'bg-[#111827] text-white'
                                                 : 'text-[#374151] hover:bg-gray-200'
@@ -199,7 +207,7 @@ const Sidebar = () => {
                                     >
                                         <Icon size={18} />
                                         <span>{item.name}</span>
-                                    </button>
+                                    </Link>
                                 );
                             })}
                         </div>

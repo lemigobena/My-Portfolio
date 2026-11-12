@@ -23,6 +23,13 @@ function App() {
           <Route path="certificates" element={<CertificatesPage />} />
           <Route path="certifications" element={<Navigate to="/certificates" replace />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="index.html" element={<Navigate to="/" replace />} />
+          <Route path="about.html" element={<Navigate to="/about" replace />} />
+          <Route path="experience.html" element={<Navigate to="/experience" replace />} />
+          <Route path="projects.html" element={<Navigate to="/projects" replace />} />
+          <Route path="skills.html" element={<Navigate to="/skills" replace />} />
+          <Route path="certificates.html" element={<Navigate to="/certificates" replace />} />
+          <Route path="contact.html" element={<Navigate to="/contact" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

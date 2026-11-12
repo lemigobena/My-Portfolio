@@ -1,11 +1,9 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaLinkedinIn, FaTelegram, FaXTwitter, FaGithub, FaUpwork } from 'react-icons/fa6';
 import { Mail } from 'lucide-react';
 
 const Footer = ({ variant = 'default' }) => {
-    const location = useLocation();
-    const navigate = useNavigate();
 
     // Compact footer for the single-screen ending (homepage and contact page)
     if (variant === 'compact') {
@@ -175,10 +173,19 @@ const Footer = ({ variant = 'default' }) => {
                     </div>
                 </div>
 
-                <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+                <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
                     <div>
                         &copy; {new Date().getFullYear()} Lemi Gobena Jaleta. Built with React & Tailwind CSS.
                     </div>
+                    <nav className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-neutral-500" aria-label="Footer Navigation">
+                        <Link to="/" className="hover:text-[#111827] transition-colors">Home</Link>
+                        <Link to="/about" className="hover:text-[#111827] transition-colors">About</Link>
+                        <Link to="/experience" className="hover:text-[#111827] transition-colors">Experience</Link>
+                        <Link to="/projects" className="hover:text-[#111827] transition-colors">Projects</Link>
+                        <Link to="/skills" className="hover:text-[#111827] transition-colors">Skills</Link>
+                        <Link to="/certificates" className="hover:text-[#111827] transition-colors">Certificates</Link>
+                        <Link to="/contact" className="hover:text-[#111827] transition-colors">Contact</Link>
+                    </nav>
                     <div className="text-[11px] text-neutral-400">
                         Addis Ababa, Ethiopia • ESSLCE Top 10 National Scorer
                     </div>
